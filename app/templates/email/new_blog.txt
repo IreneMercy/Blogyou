@@ -1,6 +1,4 @@
 
-Hello {{subscriber.email}}
-
 A new blog has been created
 
 {{blog.title}}
