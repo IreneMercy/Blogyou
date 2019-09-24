@@ -40,7 +40,9 @@ def blogs():
         blog.save()
         subscribers = Subscribe.query.all()
         for subscriber in subscribers:
-            mail_message("Hello,New Blog has been created", "email/new_blog",subscriber.email,blog=blog)
+            try:
+                mail_message("Hello,New Blog has been created", "email/new_blog",subscriber.email,blog=blog)
+            except Exception:
         return redirect(url_for('main.home'))
     return render_template('create_blog.html')
 
