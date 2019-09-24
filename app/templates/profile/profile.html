@@ -23,7 +23,7 @@
         {% for blog in blogs%}
           <div class="card">
             <div class="card-header">
-              <h6 <a href="{{url_for('main.home')}}"></a> >{{blog.title}}</h6>
+              <a href="{{url_for('main.home')}}">{{blog.title}}</a>
             </div>
           </div>
         {% endfor %}
