@@ -17,12 +17,12 @@
       <p class="mt-3">No profile picture</p>
       {% endif %}
     </div>
-    <div class="col-md-4 profile">
+    <div class="col-md-4 profile mt-3">
+      <h4>Blogs</h4>
       {% if blogs %}
         {% for blog in blogs%}
-          <div class="card mt-3">
+          <div class="card">
             <div class="card-header">
-              <h4>Blogs</h4>
               <h6 <a href="{{url_for('main.home')}}"></a> >{{blog.title}}</h6>
             </div>
           </div>
