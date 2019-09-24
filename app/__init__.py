@@ -10,6 +10,7 @@ mail = Mail(app)
 login_manager = LoginManager(app)
 login_manager.login_view ='auth.login'
 login_manager.session_protection = "strong"
+
 def create_app():
     app.config.from_object(Config)
     from .main import main as main_blueprint
