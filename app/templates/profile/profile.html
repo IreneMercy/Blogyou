@@ -18,6 +18,15 @@
       {% endif %}
     </div>
     <div class="col-md-4 profile">
+      {% if blog %}
+        {% for blogs in blog%}
+          <div class="card">
+            <div class="card-header">
+              <h6>{{blogs.title}}</h6>
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
     </div>
     <div class="col-md-4 profile">
       <form class="mt-5" action="{{url_for('main.update_pic',uname=current_user.username)}}" method="post" enctype = "multipart/form-data">
