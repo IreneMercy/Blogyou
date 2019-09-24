@@ -63,7 +63,7 @@
       </div>
       <div class="col-md-6">
         <ul class="navbar-nav ml-auto">
-          <h4 class="text-center mt-3 text-white">Quick Links</h4>
+          <h4 class="mt-3 text-white">Quick Links</h4>
           {% if current_user.is_authenticated  %}
             <li class="nav-item text-white ml-2"><a class="mt-5 text-white items" href="{{url_for('main.home')}}">{{current_user.username}}</a></li>
             <li><a class="text-white ml-2 items" href="{{url_for('main.blogs')}}">CreateBlog</a></li>
