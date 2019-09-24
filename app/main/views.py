@@ -4,6 +4,7 @@ from app.models import User,Blog, Comments, Quotes, Subscribe
 from flask_login import login_user,login_required, logout_user,current_user
 import requests
 from .. import mail
+from ..email import mail_message
 from flask_mail import Message
 
 
@@ -37,6 +38,9 @@ def blogs():
             return render_template('create_blog.html', error=error)
         blog = Blog(title=title,blog=blog, user_id=current_user.id)
         blog.save()
+        subscribers = Subscribe.query.all()
+        for subscriber in subscribers:
+            mail_message("Hello,New Blog has been created", "email/new_blog",subscriber.email,blog=blog)
         return redirect(url_for('main.home'))
     return render_template('create_blog.html')
 
@@ -94,15 +98,13 @@ def subscribe():
     if request.method == "POST":
         form = request.form
         email = form.get("email")
-        msg = Message("Hello, Thank for registering to BlogYu",
-              sender="ijanemercy@gmail.com")
-        msg.add_recipient(email)
-        mail.send(msg)
-
         if email==None:
             error = "Enter your email required"
             return render_template('index.html', error=error)
         user = Subscribe(email=email)
         user.save()
+        users = Subscribe.query.all()
+        for user in users:
+            mail_message("Hello", "email/subscribe",user.email,user=user)
         return redirect(url_for("main.home"))
     return render_template('index.html')
