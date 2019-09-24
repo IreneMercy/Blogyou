@@ -2,6 +2,7 @@
 .container-fluid{
   background-color:black;
   font-family: 'Boogaloo', cursive;
+  overflow-x: hidden;
 }
 .login{
   font-family: 'Boogaloo', cursive;
