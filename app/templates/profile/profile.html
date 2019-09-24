@@ -18,11 +18,11 @@
       {% endif %}
     </div>
     <div class="col-md-4 profile">
-      {% if blog %}
-        {% for blogs in blog%}
+      {% if blogs %}
+        {% for blog in blogs%}
           <div class="card">
             <div class="card-header">
-              <h6>{{blogs.title}}</h6>
+              <h6>{{blog.title}}</h6>
             </div>
           </div>
         {% endfor %}
