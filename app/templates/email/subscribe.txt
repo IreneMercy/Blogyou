@@ -1,0 +1,4 @@
+
+Hello {{user.email}}
+
+Thank you for subscribing to BlogYou.
