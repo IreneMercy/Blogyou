@@ -1,9 +1,9 @@
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, abort
 from . import main
 from app.models import User,Blog, Comments, Quotes, Subscribe
 from flask_login import login_user,login_required, logout_user,current_user
 import requests
-from .. import mail
+from .. import mail, db,photos
 from ..email import mail_message
 from flask_mail import Message
 
@@ -43,28 +43,6 @@ def blogs():
         return redirect(url_for('main.home'))
     return render_template('create_blog.html')
 
-
-@main.route("/blogs/<int:blog_id>", methods=['GET', 'POST'])
-@login_required
-def update_post(blog_id):
-   post = Blog.query.all()
-   print('------..........', post)
-
-   # if post.blogyou != current_user:
-   #     abort(403)
-   #     form = request.form
-   #     post.title = form.get('title')
-   #     post.blog = form.get('blog')
-   #     # if post.title==None or post.blog==None:
-   #     #     error = "All fields are required"
-   #     #     return render_template('create_blog.html', error=error)
-   #     db.session.commit()
-   #     flash('Your post has been updated!', 'success')
-   #     return redirect(url_for('main.home'))
-   # # elif request.method == 'GET':
-   #     form.get('title') = post.title
-   #     form.get('blog') = post.blog
-   return render_template('create_blog.html', title='Update Post')
 
 @main.route('/delete/<int:comment_id>')
 @login_required
@@ -107,3 +85,11 @@ def subscribe():
             mail_message("Hello", "email/subscribe",user.email,user=user)
         return redirect(url_for("main.home"))
     return render_template('index.html')
+
+
+@main.route('/user/<uname>')
+def profile(uname):
+    user = User.query.filter_by(username = uname).first()
+    if user is None:
+        abort(404)
+    return render_template("profile/profile.html", user=user)
