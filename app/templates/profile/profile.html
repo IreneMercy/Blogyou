@@ -32,7 +32,7 @@
       {% endif %}
     </div>
     <div class="col-md-4 profile">
-      <h4>Update Profile</h4>
+      <h4 class="mt-3">Update Profile</h4>
       <form class="mt-5" action="{{url_for('main.update_pic',uname=current_user.username)}}" method="post" enctype = "multipart/form-data">
           <input type="file"  name="photo" class="form-control ml-3" required>
           <input class="btn btn-info mt-2 ml-3" type="submit">
