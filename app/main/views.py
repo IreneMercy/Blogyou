@@ -93,7 +93,7 @@ def profile(uname):
     if user is None:
         abort(404)
     blogs = Blog.query.filter_by(user_id= current_user.id).all()
-    return render_template("profile/profile.html", user=user)
+    return render_template("profile/profile.html", user=user, blogs=blogs)
 
 
 
