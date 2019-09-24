@@ -1,3 +1,21 @@
-.nav-link{
-  display: inline-block;
+@import url('https://fonts.googleapis.com/css?family=Boogaloo&display=swap');
+.container-fluid{
+  background-color:black;
+  font-family: 'Boogaloo', cursive;
+}
+.login{
+  font-family: 'Boogaloo', cursive;
+}
+
+.signup{
+  font-family: 'Boogaloo', cursive;
+
+}
+.blog{
+  font-family: 'Boogaloo', cursive;
+
+}
+.home{
+  font-family: 'Boogaloo', cursive;
+
 }
