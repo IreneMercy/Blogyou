@@ -17,31 +17,32 @@
 
 
 
-        <footer>
-          <div class="container-fluid mt-5 bg-dark">
-            <div class="row  bg-danger">
-              <div class="col-md-4">
-                <p class="text-center text-white mt-3">&copy; IreneMercy</p>
-              </div>
-              <div class="col-md-4">
-                <h4 class="text-white mt-2">Contact</h4>
-                <p class="text-white">Email~ irenemercy700@gmail.com</p>
-                <p class="text-white">Github~ IreneMercy</p>
-              </div>
-              <div class="col-md-4">
-                <ul class="navbar-nav ml-auto">
-                  <h4 class="mt-3 text-white">Quick Links</h4>
-                  {% if current_user.is_authenticated  %}
-                    <li class="nav-item text-white ml-2"><a class="mt-5 text-white items" href="{{url_for('main.home')}}">{{current_user.username}}</a></li>
-                    <li><a class="text-white ml-2 items" href="{{url_for('main.blogs')}}">CreateBlog</a></li>
-                  {% endif %}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </footer>
+
       </div>
     {% endblock %}
+    <footer>
+      <div class="container-fluid mt-5 bg-dark">
+        <div class="row  bg-danger">
+          <div class="col-md-4">
+            <p class="text-center text-white mt-3">&copy; IreneMercy</p>
+          </div>
+          <div class="col-md-4">
+            <h4 class="text-white mt-2">Contact</h4>
+            <p class="text-white">Email~ irenemercy700@gmail.com</p>
+            <p class="text-white">Github~ IreneMercy</p>
+          </div>
+          <div class="col-md-4">
+            <ul class="navbar-nav ml-auto">
+              <h4 class="mt-3 text-white">Quick Links</h4>
+              {% if current_user.is_authenticated  %}
+                <li class="nav-item text-white ml-2"><a class="mt-5 text-white items" href="{{url_for('main.home')}}">{{current_user.username}}</a></li>
+                <li><a class="text-white ml-2 items" href="{{url_for('main.blogs')}}">CreateBlog</a></li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
   {% block script%}
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
