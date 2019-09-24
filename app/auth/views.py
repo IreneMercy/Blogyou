@@ -6,7 +6,6 @@ from .. import mail
 from flask_mail import Message
 
 @auth.route('/login', methods=['POST','GET'])
-
 def login():
     if request.method=='POST':
         form = request.form
@@ -17,11 +16,10 @@ def login():
             error = "User with that username  does not exist"
             return render_template('login.html', error=error)
         is_correct_password = user.check_password(password)
-        if is_correct_password==False:
-            error = "Incorrect password"
-            return render_template('login.html', error=error)
-        login_user(user)
-        return redirect(url_for('main.home'))
+        if is_correct_password!=False:
+            login_user(user)
+            return redirect(url_for('main.home'))
+            print('Username')
     return render_template('login.html')
 
 
@@ -33,7 +31,7 @@ def signup():
         email = form.get("email")
         password = form.get("password")
         confirm_password = form.get("confirm_password")
-        
+
         if username==None or password==None or email==None or password==None or confirm_password==None :
             error = "All fields are required"
             return render_template('signup.html', error=error)
