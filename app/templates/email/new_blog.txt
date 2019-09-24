@@ -1,5 +1,5 @@
 
-Hello {{subscriber.email}}
+Hello {{user.email}}
 
 A new blog has been created
 
