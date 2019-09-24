@@ -12,7 +12,7 @@
         <p>{{user.username}} has no bio</p>
       {% endif %}
       {% if user.profile_pic_path %}
-      <img src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class="img-rounded">
+      <img src="{{url_for('static', filename= user.profile_pic_path)}}" alt="" class="rounded-circle card-image" width="38%" height="40%">
       {% else %}
       <p class="mt-3">No profile picture</p>
       {% endif %}
