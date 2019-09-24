@@ -38,9 +38,9 @@ def blogs():
             return render_template('create_blog.html', error=error)
         blog = Blog(title=title,blog=blog, user_id=current_user.id)
         blog.save()
-        users = Subscribe.query.all()
-        for user in users:
-            mail_message("Hello", "email/new_blog",user.email,blog=blog)
+        subscribers = Subscribe.query.all()
+        for subscriber in subscribers:
+            mail_message("Hello,New Blog has been created", "email/new_blog",subscriber.email,blog=blog)
         return redirect(url_for('main.home'))
     return render_template('create_blog.html')
 
