@@ -58,8 +58,22 @@
 <footer>
   <div class="container-fluid mt-5 bg-dark">
     <div class="row  bg-danger">
-      <div class="col-md-12">
+      <div class="col-md-6">
         <p class="text-center text-white">&copy; IreneMercy</p>
+      </div>
+      <div class="col-md-6">
+        <ul class="navbar-nav ml-auto">
+          {% if current_user.is_authenticated  %}
+            <li class="nav-item text-white ml-2"><a class="mt-5 text-white items" href="{{url_for('main.home')}}">{{current_user.username}}</a></li>
+            <li><a class="text-white ml-2 items" href="{{url_for('main.blogs')}}">CreateBlog</a></li>
+            <li><a class="text-white ml-2 items" href="{{url_for('auth.logout')}}">Logout</a></li>
+          {% if current_user.is_authenticated and current_user.profile_pic_path is none %}
+          {% endif %}
+          {% else %}
+            <li class="nav-item"><a class="nav-link text-white" href="{{url_for('auth.login')}}">Login</a></li>
+
+          {% endif %}
+        </ul>
       </div>
     </div>
   </div>
