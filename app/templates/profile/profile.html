@@ -6,15 +6,15 @@
   <div class="row profile">
     <div class="col-md-4 profile">
       <h3 class="mt-3">{{user.username}}</h3>
-      {% if user.bio %}
-        ~ {{user.bio}}
-        {% else %}
-        <p>{{user.username}} has no bio</p>
-      {% endif %}
       {% if user.profile_pic_path %}
       <img src="{{url_for('static', filename= user.profile_pic_path)}}" alt="" class="rounded-circle card-image mt-3" width="36%" height="40%">
       {% else %}
       <p class="mt-3">No profile picture</p>
+      {% endif %}
+      {% if user.bio %}
+        ~ {{user.bio}}
+        {% else %}
+        <p>{{user.username}} has no bio</p>
       {% endif %}
     </div>
     <div class="col-md-4 profile mt-3">
