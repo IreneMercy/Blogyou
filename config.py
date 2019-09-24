@@ -8,3 +8,12 @@ class Config:
     MAIL_USE_SSL = True
     MAIL_USERNAME='ijanemercy@gmail.com'
     MAIL_PASSWORD='@janeMercy700'
+
+
+class DevConfig(Config):
+    Debug = True
+
+class ProdConfig(Config):
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://joozao:12345@localhost/blogyu'
+
+configurations = {"development":DevConfig, "production":ProdConfig}
