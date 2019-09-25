@@ -81,8 +81,8 @@ def subscribe():
         user = Subscribe(email=email)
         user.save()
         users = Subscribe.query.all()
-        for user in users:
-            mail_message("Hello", "email/subscribe",user.email,user=user)
+        # for user in users:
+        #     mail_message("Hello", "email/subscribe",user.email,user=user)
         return redirect(url_for("main.home"))
     return render_template('index.html')
 
